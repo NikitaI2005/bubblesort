@@ -1,0 +1,61 @@
+<html>
+  <body>
+    <script>
+      function main() {
+        // mapjes
+        var grootte, teller, getal, tussenmap, teller2;
+        var antwoord;
+
+        window.alert("Hoeveel getallen wil je genereren?");
+        grootte = Number(window.prompt('Enter a value for grootte'));
+        var reeks = new Array(grootte);
+
+        for (teller = 0; teller <= grootte - 1; teller++) {
+
+          // Computer kiest een getal
+          getal = Math.floor(Math.random() * 99);
+
+          // Gekozen getal in de mapjes
+          reeks[teller] = getal;
+        }
+        window.alert("Hoe wil je de getallen sorteren? (let op hoofdletters.)        " + "Van groot naar klein      " + "of      " + "Van klein naar groot      ");
+        antwoord = window.prompt('Enter a value for antwoord');
+        if (antwoord == "Van klein naar groot") {
+
+          // Blijft doorgaan tot alles goed staat.
+          for (teller2 = 1; teller2 <= grootte - 1; teller2++) {
+            for (teller = 0; teller <= grootte - 2; teller++) {
+              if (reeks[teller] > reeks[teller + 1]) {
+                tussenmap = reeks[teller];
+                reeks[teller] = reeks[teller + 1];
+                reeks[teller + 1] = tussenmap;
+              }
+            }
+          }
+          window.alert("De getallen zijn gesorteerd " + antwoord + ".");
+          alert(reeks);
+        } else {
+          if (antwoord == "Van groot naar klein") {
+
+            // Blijft doorgaan tot alles goed staat.
+            for (teller2 = 1; teller2 <= grootte - 1; teller2++) {
+              for (teller = 0; teller <= grootte - 2; teller++) {
+                if (reeks[teller] < reeks[teller + 1]) {
+                  tussenmap = reeks[teller];
+                  reeks[teller] = reeks[teller + 1];
+                  reeks[teller + 1] = tussenmap;
+                }
+              }
+            }
+            window.alert("De getallen zijn gesorteerd " + antwoord + ".");
+            alert(reeks);
+          } else {
+            window.alert("Het antwoord is verkeerd ingevuld. Check of het goed geschreven is en begin opnieuw.");
+          }
+        }
+      }
+
+      main(); 
+    </script>
+  </body>
+</html>
